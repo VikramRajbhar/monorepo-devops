@@ -19,9 +19,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          build-args:
-            - DATABASE_URL=${{ secrets.DATABASE_URL }}
           context: .
           file: ./docker/dockerfile.frontend
+          build-args:
+            - DATABASE_URL=${{ secrets.DATABASE_URL }}
           push: true
           tags: vikramrajbhar/monorepo-frontend:${{ github.sha }}
