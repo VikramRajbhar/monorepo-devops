@@ -7,18 +7,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -name: Copy the code
-      uses: actions/checkout@v2
+      - name: Copy the code
+        uses: actions/checkout@v2
       
-      -name: Login to DockerHub
-      uses: actions/login-action@v2
-      with:
+      - name: Login to DockerHub
+        uses: actions/login-action@v2
+        with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      -name: Build and push
-      uses: docker/build-push-action@v4
-      with:
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
         build-args:
           - DATABASE_URL=${{ secrets.DATABASE_URL }}
         context: .
