@@ -1,0 +1,15 @@
+FROM node:20
+
+WORKDIR /app/backend
+
+COPY package* .
+
+RUN bun install
+
+COPY . .
+
+RUN bun build
+
+EXPOSE 8080
+
+CMD ["bun", "start", "start:backend"]
