@@ -13,15 +13,15 @@ jobs:
       - name: Login to DockerHub
         uses: actions/login-action@v2
         with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-        build-args:
+          build-args:
           - DATABASE_URL=${{ secrets.DATABASE_URL }}
-        context: .
-        file: ./docker/dockerfile.web
-        push: true
-        tags: vikramrajbhar/monorepo-frontend:${{ github.sha }}
+          context: .
+          file: ./docker/dockerfile.web
+          push: true
+          tags: vikramrajbhar/monorepo-frontend:${{ github.sha }}
