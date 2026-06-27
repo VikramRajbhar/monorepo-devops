@@ -22,6 +22,6 @@ jobs:
           build-args:
           - DATABASE_URL=${{ secrets.DATABASE_URL }}
           context: .
-          file: ./docker/dockerfile.web
+          file: ./docker/dockerfile.frontend
           push: true
           tags: vikramrajbhar/monorepo-frontend:${{ github.sha }}

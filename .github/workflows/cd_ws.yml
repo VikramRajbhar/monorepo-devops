@@ -20,6 +20,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./docker/dockerfile.websocket
+          file: ./docker/dockerfile.ws
           push: true
           tags: vikramrajbhar/monorepo-websocket:${{ github.sha }}
